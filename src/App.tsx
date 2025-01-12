@@ -9,6 +9,7 @@ import BusinessInfo from './pages/businesses/BusinessInfo';
 import Bar from './pages/Bar';
 import CreateTrvOrder from './pages/trv/CreateTrvOrder';
 import TrvOrders from './pages/trv/TrvOrders';
+import Tanks from './pages/Tanks';
 import { NotifyProps, useNotification } from './components/Notifications/NotificationContext';
 import { NotificationList } from './components/Notifications/NotificationList';
 
@@ -23,8 +24,7 @@ export default function App() {
     };
 
     const redirectPageJson = (page: string, json: string) => {
-      //console.log("redirectPageJson");
-      //console.log(json);
+      console.log(json);
       const url = `${page}?data=${json}`;
       navigate(url);
     };
@@ -67,6 +67,7 @@ export default function App() {
         <Route path="/bar" element={<Bar />} />
         <Route path="/createtrvorder" element={<CreateTrvOrder />} />
         <Route path="/trvorders" element={<TrvOrders />} />
+        <Route path="/tanks" element={<Tanks />} />
       </Routes>
     </>
   );
