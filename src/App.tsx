@@ -10,12 +10,10 @@ import Bar from './pages/Bar';
 import CreateTrvOrder from './pages/trv/CreateTrvOrder';
 import TrvOrders from './pages/trv/TrvOrders';
 import Tanks from './pages/Tanks';
-import { NotifyProps, useNotification } from './components/Notifications/NotificationContext';
-import { NotificationList } from './components/Notifications/NotificationList';
+import Notifications from './components/Notifications';
 
 export default function App() {
   const navigate = useNavigate();
-  const { addNotification } = useNotification();
 
   useEffect(() => {
     const redirectPage = (page: string) => {
@@ -29,34 +27,23 @@ export default function App() {
       navigate(url);
     };
 
-    const handleNotification = (notificationJson: string) => {
-      try {
-        const notification: NotifyProps = JSON.parse(notificationJson);
-        addNotification(notification);
-      } catch (error) {
-        console.error("Invalid notification JSON", error);
-        addNotification({ MsgType: 'error', Message: 'Įvyko klaida!' });
-      }
-    };
 
     if ('alt' in window) {
       alt.on("webView:Redirect", redirectPage);
       alt.on("webView:RedirectWithJson", redirectPageJson);
-      alt.on("WebView:SendNotification", handleNotification);
     }
 
     return () => {
       if ('alt' in window){
         alt.off("webView:Redirect", redirectPage)
         alt.off("webView:RedirectWithJson", redirectPageJson);
-        alt.off("WebView:SendNotification", handleNotification);
       }
     };
-  }, [navigate, addNotification]);
+  }, [navigate]);
 
   return (
     <>
-    <NotificationList />
+    <Notifications />
 
       <Routes>
         <Route path="/" element={<Hud />} />
