@@ -3,47 +3,49 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "PFDinDisplayPro-Regular";
-  src: url("./assets/fonts/PFDinDisplayPro-Regular.ttf");
+    font-family: 'PFDinDisplayPro-Regular';
+    src: url('./assets/fonts/PFDinDisplayPro-Regular.ttf');
 }
 
 * {
-  user-select: none;
+    user-select: none;
 }
 
 :root {
-  line-height: 1.5;
+    line-height: 1.5;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: rgba(255, 255, 255, 0);
+    font-size: max(14px, 1.2vh);
 
-  /* background-image: url("https://images4.alphacoders.com/786/786027.jpg"); */
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: rgba(255, 255, 255, 0);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* background-image: url("https://images4.alphacoders.com/786/786027.jpg"); */
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ScrollBar */
 ::-webkit-scrollbar {
-  width: 3px;
-  border-radius: 200px;
+    width: 3px;
+    border-radius: 200px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(65, 65, 65, 0.829);
-  border-radius: 200px;
+    background: rgba(65, 65, 65, 0.829);
+    border-radius: 200px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(197, 197, 197);
-  border: 0 0 0 solid none;
-  border-radius: 20px;
+    background: rgb(197, 197, 197);
+    border: 0 0 0 solid none;
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
-  border-radius: 200px;
+    background: #fff;
+    border-radius: 200px;
 }
