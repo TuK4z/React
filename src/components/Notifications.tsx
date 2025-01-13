@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from './Button';
-
 type MessageType = 'success' | 'error' | 'warning' | 'info';
 interface NotifyProps {
     Message: string;
@@ -13,7 +11,6 @@ interface InternalState extends NotifyProps {
 
 const Notifications: React.FC = () => {
     const [notifications, setNotifications] = useState<InternalState[]>([]);
-    const [testState, setTestState] = useState(0);
 
     const addNotification = (notification: NotifyProps) => {
         setNotifications((prev) => {
@@ -76,19 +73,6 @@ const Notifications: React.FC = () => {
 
     return (
         <>
-            {!('alt' in window) && (
-                <Button
-                    className="w-20 absolute top-10 right-72"
-                    btnText="Test notification"
-                    onClick={() => {
-                        addNotification({
-                            MsgType: 'success',
-                            Message: `Test notification dsa : ${testState}`,
-                        });
-                        setTestState((prev) => prev + 1);
-                    }}
-                />
-            )}
             <div className="fixed w-screen top-3 flex flex-col items-center justify-center gap-2 font-bold pointer-events-none">
                 {notifications.map((notification, index) => (
                     <div key={index + notification.timeleft} className="w-1/5 relative transition-all flex items-center justify-center">
