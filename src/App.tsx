@@ -10,6 +10,7 @@ import Bar from './pages/Bar';
 import CreateTrvOrder from './pages/trv/CreateTrvOrder';
 import TrvOrders from './pages/trv/TrvOrders';
 import Tanks from './pages/Tanks';
+import TanksStats from './pages/TanksStats';
 import Notifications from './components/Notifications';
 
 export default function App() {
@@ -55,6 +56,7 @@ export default function App() {
         <Route path="/createtrvorder" element={<CreateTrvOrder />} />
         <Route path="/trvorders" element={<TrvOrders />} />
         <Route path="/tanks" element={<Tanks />} />
+        <Route path="/tanksstats" element={<TanksStats />} />
       </Routes>
     </>
   );

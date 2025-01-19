@@ -20,9 +20,16 @@ export default function Tanks() {
         }
     };
 
+    const toStats = () => {
+        if ("alt" in window) {
+            alt.emit('TankuKovos:CheckStats');
+        }
+    };
+
     return (
         <div className="h-screen bg-custom-gradient">
             <div className="bg-[#0e041c90] h-screen flex items-center justify-center">
+                
                 <Signature />
                 <Escape />
 
@@ -31,6 +38,8 @@ export default function Tanks() {
                         <h5 className="mb-3 text-base font-semibold md:text-xl text-white">
                             Tankų kovos
                         </h5>
+
+                        <CustomButton onClick={toStats} btnText="Statistika" size="small" />
                     </div>
 
                     <p className="text-sm font-normal text-gray-400">
