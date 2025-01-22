@@ -15,10 +15,12 @@ export default function TanksStats() {
     const jsonData = encodedJson
         ? JSON.parse(encodedJson)
         : {
-            PlayerData: { Name: "Valentinas_Tukas", GamesPlayed: 10, Win: 2, WinRate: 28 },
-            TopPlayers: [{ Name: "Valentinas_Tukas1", GamesPlayed: 10, Win: 2, WinRate: 12 }
-            ,{ Name: "Valentinas_Tukas2", GamesPlayed: 3, Win: 2, WinRate: 40 }
-            ,{ Name: "Valentinas_Tukas3", GamesPlayed: 5210, Win: 210, WinRate: 50}]
+            PlayerData: { StatsPosition: 25 },
+            TopPlayers: [{"AccountId":729392470839918704,"Name":"Archeris_Skalpu","GamesPlayed":5,"Win":4,"WinRate":0.8}
+                ,{"AccountId":276741268715995136,"Name":"Valentinas_Tukas","GamesPlayed":9,"Win":5,"WinRate":0.5555555555555556}
+                ,{"AccountId":335892541906092033,"Name":"David_Emke","GamesPlayed":10,"Win":5,"WinRate":0.5}
+                ,{"AccountId":243064056779505664,"Name":"Beliunas_Justas","GamesPlayed":5,"Win":1,"WinRate":0.2}
+                ,{"AccountId":203619891767541760,"Name":"Modestas_Wolf","GamesPlayed":1,"Win":0,"WinRate":0}]
         };
 
     return (
@@ -41,6 +43,16 @@ export default function TanksStats() {
                         </p>
 
                         <h1>Vardas / Sužaista / Laimėjimai / Laimėjimo procentas</h1>
+
+                        <div>
+                            <h1>Jūsų vieta: 
+                                <span className="text-yellow-600">
+                                    {jsonData.PlayerData.StatsPosition === 0 
+                                    ? " Jūs turite sužaisti bent 10 žaidimų" 
+                                    : jsonData.PlayerData.StatsPosition}
+                                </span>
+                            </h1>
+                        </div>
 
                         <ul className="my-4 space-y-3 max-h-144 overflow-y-auto">
                             {jsonData.TopPlayers.map((item : TankStatModel, index : number) => (
@@ -72,7 +84,7 @@ export default function TanksStats() {
 
                     <div>
                         <div className="inline-flex items-center text-xs font-normal text-gray-400">
-                            WR% išvedamas pagal sužaistų ir laimėtų žaidimų kiekį. Reikia sužaisti bent 50 žaidimų, kad WR% statistika patektų į TOP lentelę
+                            WR% išvedamas pagal sužaistų ir laimėtų žaidimų kiekį. Reikia sužaisti bent 10 žaidimų, kad WR% statistika patektų į TOP lentelę
                         </div>
                     </div>
                 </div>
